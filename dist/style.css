@@ -18,7 +18,10 @@ header {
 .container {
     padding: 5px;
     background-color: whitesmoke;
-    
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin: 2em;
 }
 
 .card {
