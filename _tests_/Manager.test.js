@@ -1,28 +1,25 @@
 const Manager = require('../lib/Manager');
 const Employee = require('../lib/Employee');
-const { describe } = require('yargs');
-const { it } = require('node:test');
 
 describe("Manager", () => {
     it("should have an office number", () => {
-        const david = new Manager("David", 3, "david@david.com", "Manager", 5);
-        expect(david.oNum).toEqual(5);
+        const testNumber = 5;
+        const david = new Manager("David", 3, "david@david.com", "Manager", testNumber);
+        expect(david.officeNumber).toBe(testNumber);
     });
 
-    it("should throw an error if no input is provided", () => {
-        const cb = () => new Manager("David", 12, "david@david.com", "Manager");
+    it("get role by command", () => {
+        //const testRole = "Manager";
+        const david = new Manager("David", 12, "david@david.com", "Manager", 5);
 
-        const err = new Error("You can't attend a number...")
-
-        expect(cb).toThrowError(err)
+        expect(david.getRole()).toBe("Manager");
     });
 
-    it("should throw an error if input is not a number", () => {
-        const cb = () => new Intern("David", 12, "david@david.com", "Intern", "squirrel");
+    it("Can get office number by command", () => {
+        const testNumber = 50;
+        const david = new Manager("David", 12, "david@david.com", "Manager", testNumber);
 
-        const err = new Error("Should you really be a manager...")
-
-        expect(cb).toThrowError(err)
+        expect(david.getOfficeNumber()).toBe(testNumber);
 
     });
 })
